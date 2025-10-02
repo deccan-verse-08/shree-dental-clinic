@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { use, useState } from 'react';
 import { AnimatePresence , motion } from 'framer-motion';
+import { exit } from 'process';
 const navLinks =[
   {
     href:"/",
@@ -125,7 +126,7 @@ const Navbar = () => {
                     className="block h-6 w-6"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke="currentColor"
+                    stroke="black"
                   >
                     <path
                       strokeLinecap="round"
@@ -139,7 +140,7 @@ const Navbar = () => {
                     className="block h-6 w-6"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke="currentColor"
+                    stroke="black"
                   >
                     <path
                       strokeLinecap="round"
@@ -170,6 +171,50 @@ const Navbar = () => {
           animate="visible"
           exit="hidden"
           >
+            <div className='px-4 pt-4 pb-6 space-y-3'>
+              {
+                navLinks.map((link,index)=>{
+                  const isActive = pathname === link.href;
+                  return(
+                    <motion.div
+                    key={link.href}
+                    initial={{opacity:0,x:-20}}
+                    animate={{opacity:1,x:0}}
+                    transition={{delay:index * 0.1}}
+                    exit={{opacity:0,x:-20}}
+                  >
+                    <Link href={link.href} onClick={()=>setIsOpen(false)} className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
+                        isActive
+                          ? "text-[--text]":"text-blue-700 hover:text-black border border-transparent"
+                         
+                      }`}>
+                        <div className="flex items-center space-x-3">
+                        <div
+                          className={`w-2 h-2 rounded-full transition-all ${
+                            isActive ? "bg-gradient-to-b from-blue-900/50 text-shadow-blue-950/50 " : "bg-transparent"
+                          }`}
+                        />
+                        <span>{link.label}</span>
+                      </div>
+                      </Link>
+
+                    </motion.div>
+                  )
+                })
+              }
+               <Link href="/Contact">
+                <motion.button
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navLinks.length * 0.1 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  className="w-full mt-4 px-4 py-3 rounded-lg bg-violet-900 hover:bg-violet-700 text-white text-base  font-semibold border border-violet-500 shadow-lg shadow-violet-800/30 transition-all text-left"
+                >
+                  Consult Now
+                </motion.button>
+              </Link>
+
+            </div>
 
           </motion.div>
         )}
