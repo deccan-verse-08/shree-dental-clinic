@@ -1,85 +1,88 @@
 import { Facebook, Instagram, Mail, Phone, Youtube } from "lucide-react";
 import Link from "next/link";
 
-const Footer=()=>{
-    return(
-        <footer className="bg-black text-gray-300 py-12 px-4 sm:px-8 border-t border-gray-800">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                {/* Logos  */}
-                <div className="mb-8 md:mb-0">
-                    <span>Shree Dental Clinic</span>
-                    <p className="mt-4 text-gray-400 text-sm max-w-xs">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque, natus.</p>
-                </div>
-                {/* Quick Links */}
-                <div className="mb- md:mb-0">
-                    <h3 className="text-lg font-semibold text-white mb-">Quick Links</h3>
-                    <ul className="space-y-2">
-                        <li>
-                            <Link href="/" className="hover:text-white transition">Treatments</Link>
-                        </li>
-                        <li>
-                            <Link href="/" className="hover:text-white transition">About Us</Link>
-                        </li>
-                        <li>
-                            <Link href="/" className="hover:text-white transition">Gallery</Link>
-                        </li>
-                        <li>
-                            <Link href="/" className="hover:text-white transition">Contact</Link>
-                        </li>
-                        
+const Footer = () => {
+  return (
+    <footer className="bg-[#0A1F2E] text-[#E6EEF3] py-12 px-4 sm:px-8 border-t border-[#00B0C8]/40 backdrop-blur-sm">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
 
-                    </ul>
+        {/* Logo / About */}
+        <div className="mb-8 md:mb-0">
+          <span className="text-[#00B0C8] font-bold text-xl tracking-wide">Shree Dental Clinic</span>
+          <p className="mt-4 text-[#E6EEF3]/70 text-sm max-w-xs leading-relaxed">
+            Premium dental care with a futuristic touch. Experience modern treatments in a sleek, stylish environment.
+          </p>
+        </div>
 
-                </div>
-                {/* Contact information */}
-                <div className="mb-8 md:mb-0">
-                    <h3 className="text-lg font-semibold text-white mb-4">Contact Us</h3>
-                    <div className="space-y-3">
-                        <a href="" className="flex items-center justify-center md:justify-start gap-3 hover:text-white transition">
-                            <Mail size={20}/>
-                            <span>info@ShreeDentist.com</span>
-                        </a>
-                        <a href="tel:+9699957732" className="flex items-center justify-center md:justify-start gap-3 hover:text-white transition">
-                            <Phone size={20}/>
-                            <span>+91 9699957732</span>
-                        </a>
-                    </div>
-                </div>
-                {/* Social media */}
-                 <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
-          <div className="flex justify-center md:justify-start space-x-5">
+        {/* Quick Links */}
+        <div className="mb-8 md:mb-0">
+          <h3 className="text-[#00B0C8] text-lg font-semibold mb-4 tracking-wide">Quick Links</h3>
+          <ul className="space-y-2">
+            {["Treatments", "About Us", "Gallery", "Contact"].map((link, idx) => (
+              <li key={idx}>
+                <Link
+                  href="/"
+                  className="text-[#E6EEF3]/80 hover:text-[#00B0C8] transition-all duration-300 hover:drop-shadow-[0_0_6px_#00B0C8]"
+                >
+                  {link}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Contact Info */}
+        <div className="mb-8 md:mb-0">
+          <h3 className="text-[#00B0C8] text-lg font-semibold mb-4 tracking-wide">Contact Us</h3>
+          <div className="space-y-3">
             <a
-              href="https://www.facebook.com"
-              className="text-gray-400 hover:text-white transition"
-              aria-label="Facebook"
+              href="mailto:info@ShreeDentist.com"
+              className="flex items-center gap-3 text-[#E6EEF3]/80 hover:text-[#00B0C8] transition-all duration-300 hover:drop-shadow-[0_0_6px_#00B0C8]"
             >
-              <Facebook size={24} />
+              <Mail size={20} className="text-[#00B0C8]" />
+              <span>info@ShreeDentist.com</span>
             </a>
             <a
-              href="https://www.instagram.com"
-              className="text-gray-400 hover:text-white transition"
-              aria-label="Instagram"
+              href="tel:+919699957732"
+              className="flex items-center gap-3 text-[#E6EEF3]/80 hover:text-[#00B0C8] transition-all duration-300 hover:drop-shadow-[0_0_6px_#00B0C8]"
             >
-              <Instagram size={24} />
-            </a>
-            <a
-              href="https://www.youtube.com/"
-              className="text-gray-400 hover:text-white transition"
-              aria-label="Youtube"
-            >
-              <Youtube size={24} />
+              <Phone size={20} className="text-[#00B0C8]" />
+              <span>+91 9699957732</span>
             </a>
           </div>
         </div>
-      </div>
-      {/* Copyright */}
-      <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-blue-800 text-center text-gray-500 text-sm">
-        <p>Copyright: 2025 Shree Dental Clinic. All rights reserved</p>
-      </div>
-    
-</footer>
-    )
-}
 
-export default Footer; 
+        {/* Social Media */}
+        <div>
+          <h3 className="text-[#00B0C8] text-lg font-semibold mb-4 tracking-wide">Follow Us</h3>
+          <div className="flex justify-center md:justify-start space-x-5">
+            {[
+              { href: "https://www.facebook.com", icon: Facebook, label: "Facebook" },
+              { href: "https://www.instagram.com", icon: Instagram, label: "Instagram" },
+              { href: "https://www.youtube.com/", icon: Youtube, label: "Youtube" },
+            ].map((social, idx) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={idx}
+                  href={social.href}
+                  className="text-[#E6EEF3]/70 hover:text-[#00B0C8] transition-all duration-300 hover:drop-shadow-[0_0_10px_#00B0C8]"
+                  aria-label={social.label}
+                >
+                  <Icon size={24} />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-[#00B0C8]/20 text-center text-[#E6EEF3]/60 text-sm tracking-wide">
+        <p>© 2025 Shree Dental Clinic. All rights reserved</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
