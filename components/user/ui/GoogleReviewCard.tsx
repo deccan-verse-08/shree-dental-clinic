@@ -31,7 +31,7 @@ const GoogleReviewCard: React.FC<GoogleReviewCardProps> = ({ review }) => {
               height={150}
               width={150}
               alt="tooth"
-              className="opacity-10"
+              className="opacity-40"
             />
           </div>
 

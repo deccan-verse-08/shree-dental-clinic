@@ -86,6 +86,8 @@ const reviews = [
 ];
 
 const Reviews = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.1 });
   return (
     <div className="bg-gradient-to-b from-blue-50 via-white to-blue-100 ">
       {/* Heading with scroll animation */}
@@ -98,12 +100,23 @@ const Reviews = () => {
         transition={{ duration: 0.8 }}
         
       >
-        <h3 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 mb-6 tracking-tight mt-4">
-          <FaGoogle className="inline-block mr-4" />
-          Google Reviews
+        <h3 className="text-5xl md:text-7xl font-bold  bg-clip-text mb-6 tracking-tight mt-4">
+          
+          Smiles Speak Louder Than Words
+          
         </h3>
+        
+
+        <motion.div
+  className="h-1 bg-gradient-to-r from-transparent via-violet-600 to-transparent mx-auto"
+  initial={{ width: "10%" }}
+  animate={{ width: "80%" }} // increase width
+  transition={{ duration: 1.2, delay: 0.4, ease: [0.22,1,0.36,1] }}
+/>
+
+        
         <p className="mt-6 text-lg max-w-3xl mx-auto leading-relaxed">
-          What our patients are saying about us
+          Hear From Our Patients
         </p>
       </motion.div>
 
