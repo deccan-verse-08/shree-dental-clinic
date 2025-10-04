@@ -1,3 +1,4 @@
+import CTASection from "@/components/user/CtaSection";
 import Footer from "@/components/user/Footer";
 import Hero from "@/components/user/Hero";
 
@@ -13,6 +14,7 @@ export default function Home() {
 <Hero/>
 <WhyChooseUs/>
 <Reviews/>
+<CTASection/>
     <Footer/>
    </div>
   );

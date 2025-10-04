@@ -1,226 +1,158 @@
+
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { use, useState } from 'react';
-import { AnimatePresence , motion } from 'framer-motion';
-import { exit } from 'process';
-const navLinks =[
-  {
-    href:"/",
-    label:"Home"
-  },
-  {
-    href: "/about",
-    label: "About Us"
-  },
-  {
-    href:"/treatments",
-    label:"Treatments"
-  },
-  {
-    href:"/gallery",
-    label:"Gallery"
-  },
-  {
-    href:"/contact",
-    label:"Contact"
-  },
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { FiMenu, FiX } from 'react-icons/fi';
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About Us' },
+  { href: '/treatments', label: 'Treatments' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/contact', label: 'Contact' },
 ];
-const Navbar = () => {
-  const [isOpen,setIsOpen] = useState(false);
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+
   return (
     <motion.nav
-    initial={{opacity:0,y:-20}}
-    animate={{opacity:1,y:0}}
-    className='bg-[--navbar-bg] shadow-md sticky top-0 z-50 border-b border-blue-500/50 backdrop-blur-lg'
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="fixed top-0 left-0 w-full z-50 bg-black border-b border-blue-700/40 shadow-md backdrop-blur-sm"
     >
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+        <div className="flex justify-between items-center h-20">
+          
+          {/* ---- Logo Section ---- */}
+          <Link href="/" className="flex items-center space-x-3">
+            <Image
+              src="/icon.png"
+              alt="Shree Dental Clinic"
+              width={100}
+              height={100}
+              priority
+              className="object-contain"
+            />
+            <span className="text-lg sm:text-xl font-semibold  bg-clip-text text-red-900">
+              Shree <span className="text-white">Dental Clinic</span>
+            </span>
+          </Link>
 
-      <div className='mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex justify-between items-center h-24'>
-
-          {/* Logo section */}
-          <motion.div
-          whileHover={{scale:1.05}}
-          whileTap={{scale:0.95}}
-          className='flex-shrink-0'
-          >
-            <Link href="/" className='flex items-center py-4 px-2 cursor-pointer'>
-            <span className='text-blue-400'>Shree Dental Clinic</span>
-            </Link>
-
-          </motion.div>
-          {/* Navigation Links */}
-          <div className='hidden md:flex flex-1 justify-center items-center  space-x-6 mx-4'>
-            {navLinks.map((link,index)=>{
+          {/* ---- Desktop Nav Links ---- */}
+          <div className="hidden md:flex items-center space-x-6">
+            {navLinks.map((link, index) => {
               const isActive = pathname === link.href;
-              return(
+              return (
                 <motion.div
-                initial={{opacity:0,y:-20}}
-                animate={{opacity:1,y:0}}
-                transition={{delay: index * 0.1}}
-                key={link.href}
-          >
-                  <Link href={link.href}
-                  className={`px-4 py-2 rounded-md text-base font-medium transition-all duration-300 relative overflow-hidden group ${
-                    isActive ? "text-[--text]":"text-blue-700 hover:text-black"
-                  }`}>
-                  <span className='relative z-10'>
+                  key={link.href}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Link
+                    href={link.href}
+                    className={`relative px-3 py-2 text-base font-medium transition-all duration-300 group ${
+                      isActive
+                        ? 'text-blue-400'
+                        : 'text-gray-300 hover:text-blue-300'
+                    }`}
+                  >
                     {link.label}
-                  </span>
-                  {isActive && (
-                    <motion.div
-                    layoutId='activeTab'
-                    className='absolute inset-0 bg-gradient-to-b from-blue-900/50 text-shadow-blue-950/50 rounded-md'
-                    transition={{
-                      type:"spring",
-                      stiffness:300,
-                      damping:25,
-                    }}
+                    <span
+                      className={`absolute bottom-0 left-0 w-full h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform origin-center ${
+                        isActive ? 'bg-red-500 scale-x-100' : 'bg-red-500'
+                      }`}
                     />
-                  )}
-                  <div className='absolute bottom-0 left-0 w-full h-0.5 bg-violet-950/50 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center'/>
                   </Link>
-
                 </motion.div>
               );
             })}
-
           </div>
 
-          {/* Right side buttons */}
-          <div className='flex items-center space-x-4'>
-            <Link href="">
+          {/* ---- Desktop Button ---- */}
+          <div className="hidden md:flex">
+            <Link href={"/contact"}>
             <motion.button
-            whileHover={
-              {
-                scale:1.05,
-                boxShadow:"0px 0px 15px rgba(220,38,38,0.5)",
-              }
-            }
-            whileTap={{scale:0.95}}
-            className='hidden md:block px-6 py-3 rounded-lg bg-violet-900 hover:bg-violet-700 text-white text-base font-semibold border border-violet-500 shadow-lg shadow-violet-800/30 transition-all'
+              whileHover={{
+                scale: 1.05,
+                boxShadow: '0px 0px 15px rgba(59,130,246,0.4)',
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-2 rounded-lg bg-violet-900 hover:bg-violet-700 text-white font-semibold border   border-violet-500 shadow-lg shadow-violet-800/30 transition-all"
             >
-            Consult Now
+              Consult Now
             </motion.button>
-            
             </Link>
-
-            {/* Mobile menu buttons */}
-            <motion.button
-            whileHover={{scale:1.05}}
-            whileTap={{scale:0.95}}
-            onClick={()=>setIsOpen(!isOpen)}
-            className='md:hidden inline-flex items-center justify-center p-3 rounded-lg text-blue-700 hover:text-black hover:bg-blue-900/40 focus:outline-none focus-ring-2
-            focus:ring-blue-700/50 border border-blue-800/50 bg-black/20 backdrop-blur-sm transition-all'
-            aria-controls='mobile-menu'
-            aria-expanded={isOpen}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-            >
-              <motion.div
-              animate={{rotate: isOpen ? 180 : 0}}
-              transition={{duration:0.3}}
-              >
-                 {isOpen ? (
-                  <svg
-                    className="block h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="black"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="block h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="black"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                )}
-
-              </motion.div>
-
-            </motion.button>
-
           </div>
 
+          {/* ---- Mobile Menu Toggle ---- */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden flex items-center justify-center p-3 rounded-md border border-blue-700/50 bg-blue-950/30 text-blue-400 hover:text-blue-300 transition-all"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isOpen ? (
+              <FiX className="w-6 h-6 text-blue-400" />
+            ) : (
+              <FiMenu className="w-6 h-6 text-blue-400" />
+            )}
+          </motion.button>
         </div>
-
       </div>
 
-      {/* Mobile navigations */}
+      {/* ---- Mobile Dropdown Menu ---- */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-          className='md:hidden bg-[--navbar-bg] border-t border-blue-500/50 backdrop-blur-xl'
-          id='mobile-menu'
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="md:hidden bg-black border-t border-blue-700/40"
           >
-            <div className='px-4 pt-4 pb-6 space-y-3'>
-              {
-                navLinks.map((link,index)=>{
-                  const isActive = pathname === link.href;
-                  return(
-                    <motion.div
+            <div className="px-6 py-4 space-y-2">
+              {navLinks.map((link, i) => {
+                const isActive = pathname === link.href;
+                return (
+                  <motion.div
                     key={link.href}
-                    initial={{opacity:0,x:-20}}
-                    animate={{opacity:1,x:0}}
-                    transition={{delay:index * 0.1}}
-                    exit={{opacity:0,x:-20}}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
                   >
-                    <Link href={link.href} onClick={()=>setIsOpen(false)} className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`block px-3 py-3 rounded-md text-base font-medium transition-colors ${
                         isActive
-                          ? "text-[--text]":"text-blue-700 hover:text-black border border-transparent"
-                         
-                      }`}>
-                        <div className="flex items-center space-x-3">
-                        <div
-                          className={`w-2 h-2 rounded-full transition-all ${
-                            isActive ? "bg-gradient-to-b from-blue-900/50 text-shadow-blue-950/50 " : "bg-transparent"
-                          }`}
-                        />
-                        <span>{link.label}</span>
-                      </div>
-                      </Link>
+                          ? 'text-blue-400 bg-blue-900/20'
+                          : 'text-gray-300 hover:text-blue-300 hover:bg-blue-900/10'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                );
+              })}
 
-                    </motion.div>
-                  )
-                })
-              }
-               <Link href="/Contact">
-                <motion.button
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navLinks.length * 0.1 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  className="w-full mt-4 px-4 py-3 rounded-lg bg-violet-900 hover:bg-violet-700 text-white text-base  font-semibold border border-violet-500 shadow-lg shadow-violet-800/30 transition-all text-left"
-                >
-                  Consult Now
-                </motion.button>
-              </Link>
-
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full mt-4 px-4 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold border border-blue-400 transition-all"
+              >
+                Consult Now
+              </motion.button>
             </div>
-
           </motion.div>
         )}
       </AnimatePresence>
     </motion.nav>
   );
-};
-
-export default Navbar;
+}
