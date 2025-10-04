@@ -89,7 +89,7 @@ const Reviews = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.1 });
   return (
-    <div className="bg-gradient-to-b from-blue-50 via-white to-blue-100 ">
+    <div className=" ">
       {/* Heading with scroll animation */}
       <motion.div
       className="text-center mb-10 px-6 md:px-12 lg:px-24 pt-12"
@@ -100,7 +100,7 @@ const Reviews = () => {
         transition={{ duration: 0.8 }}
         
       >
-        <h3 className="text-5xl md:text-7xl font-bold  bg-clip-text mb-6 tracking-tight mt-4">
+        <h3 className="text-transparent text-5xl md:text-7xl font-bold  bg-clip-text mb-6 tracking-tight mt-4 bg-gradient-to-r from-teal-700 via-blue-800 to-cyan-700 ">
           
           Smiles Speak Louder Than Words
           

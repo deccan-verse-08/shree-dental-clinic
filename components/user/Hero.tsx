@@ -5,7 +5,7 @@ import { AnimatePresence , motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section className="relative h-screen w-full bg-gradient-to-br from-blue-50 via-white to-blue-100 overflow-hidden">
+    <section className="relative h-screen w-full  overflow-hidden">
     
 <div className="absolute top-10 right-10 w-72 h-72 opacity-20 animate-bounce-slow">
         <Image

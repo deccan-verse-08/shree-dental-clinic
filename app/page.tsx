@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-   <div className="bg-gradient-to-br from-blue-50 via-white to-blue-100">
+   <div className="bg-gradient-to-r from-[#e0f2ff] via-white to-[#e8f7f9]">
     <Navbar/>
 <Hero/>
 <Reviews/>
