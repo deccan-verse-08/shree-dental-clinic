@@ -23,7 +23,7 @@ export default function Navbar() {
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="fixed top-0 left-0 w-full z-50 bg-black border-b border-blue-700/40 shadow-md backdrop-blur-sm"
+      className="fixed top-0 left-0 w-full z-50 bg-white border-b border-blue-700/40 shadow-md backdrop-blur-lg bg-opacity-50"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <div className="flex justify-between items-center h-20">
@@ -31,7 +31,7 @@ export default function Navbar() {
           {/* ---- Logo Section ---- */}
           <Link href="/" className="flex items-center space-x-3">
             <Image
-              src="/icon.png"
+              src="/logo.png"
               alt="Shree Dental Clinic"
               width={100}
               height={100}
@@ -39,7 +39,7 @@ export default function Navbar() {
               className="object-contain"
             />
             <span className="text-lg sm:text-xl font-semibold  bg-clip-text text-red-900">
-              Shree <span className="text-white">Dental Clinic</span>
+              Shree <span className="text-black">Dental Clinic</span>
             </span>
           </Link>
 
@@ -58,8 +58,8 @@ export default function Navbar() {
                     href={link.href}
                     className={`relative px-3 py-2 text-base font-medium transition-all duration-300 group ${
                       isActive
-                        ? 'text-blue-400'
-                        : 'text-gray-300 hover:text-blue-300'
+                        ? 'text-blue-600'
+                        : 'text-gray-900 hover:text-blue-400'
                     }`}
                   >
                     {link.label}
@@ -132,8 +132,8 @@ export default function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className={`block px-3 py-3 rounded-md text-base font-medium transition-colors ${
                         isActive
-                          ? 'text-blue-400 bg-blue-900/20'
-                          : 'text-gray-300 hover:text-blue-300 hover:bg-blue-900/10'
+                          ? 'text-red-600 bg-gray-900/20'
+                          : 'text-white hover:text-blue-300 hover:bg-gray-900/10'
                       }`}
                     >
                       {link.label}
