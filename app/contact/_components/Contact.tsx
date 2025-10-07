@@ -18,14 +18,14 @@ const Contact = () => {
       phone: "+91 77095 19507",
       location: "Bhosari, Pune, Maharashtra",
       hours: "Mon - Sat: 10:00 AM - 8:00 PM",
-      map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.180236402302!2d73.8474!3d18.6262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c7d81234567%3A0xabcdef123456!2sBhosari%20Dental%20Clinic!5e0!3m2!1sen!2sin!4v1691000000000!5m2!1sen!2sin",
+      map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120989.6484990936!2d73.69932839726562!3d18.622374700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c79d2c2926b7%3A0xa39950f67f6e087e!2sShree%20Dental%20Clinic%20%26%20Implant%20Center-%20Dr.%20Vaibhav%20Harkare%20%7C%20Root%20Canal%20%7C%20Braces%20%7C%20Orthodontist%20in%20PCMC!5e0!3m2!1sen!2sin!4v1759700065393!5m2!1sen!2sin",
     },
     triveni: {
       email: "snehal@example.com",
       phone: "+91 87931 51502",
       location: "Triveni Nagar, Pune, Maharashtra",
       hours: "Mon - Sat: 9:30 AM - 7:30 PM",
-      map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.420891059274!2d73.8605!3d18.6187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c7781234567%3A0xabcdef654321!2sTriveni%20Dental%20Clinic!5e0!3m2!1sen!2sin!4v1691000000000!5m2!1sen!2sin",
+      map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120955.64051012186!2d73.6337315972656!3d18.670108399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b73ca8a35431%3A0xb0f153024537674c!2sShree%20Dental%20Clinic%20%26%20Implant%20Center%20%7C%20Dr.%20Snehal%20Kulkarni%20Dentist!5e0!3m2!1sen!2sin!4v1759700352389!5m2!1sen!2sin",
     },
   };
 
