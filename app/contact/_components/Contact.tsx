@@ -4,6 +4,7 @@ import React, { useRef, useState } from "react";
 import { FiClock, FiMail, FiMapPin, FiPhone, FiShare2 } from "react-icons/fi";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const AnimatedBubbles = dynamic(() => import("./AnimatedBubbles"), { ssr: false });
 
@@ -28,6 +29,14 @@ const Contact = () => {
       map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120955.64051012186!2d73.6337315972656!3d18.670108399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b73ca8a35431%3A0xb0f153024537674c!2sShree%20Dental%20Clinic%20%26%20Implant%20Center%20%7C%20Dr.%20Snehal%20Kulkarni%20Dentist!5e0!3m2!1sen!2sin!4v1759700352389!5m2!1sen!2sin",
     },
   };
+
+  function findOutLocation(){
+    if(activeTab==="bhosari"){
+      return locations.bhosari.phone;
+    }else{
+      return locations.triveni.phone;
+    }
+  }
 
   const info = locations[activeTab];
 
@@ -200,6 +209,8 @@ const Contact = () => {
           </motion.div>
         </div>
 
+        
+
         {/* Message Button */}
         <div className="flex justify-center mt-12 md:mt-16">
           <motion.button
@@ -210,7 +221,9 @@ const Contact = () => {
             whileTap={{ scale: 0.95 }}
             className="px-6 py-3 rounded-lg bg-violet-900 hover:bg-violet-700 text-white text-base font-semibold border border-violet-500 shadow-lg shadow-violet-800/30 transition-all"
           >
-            <p>WhatsApp us</p>
+            <Link href={`https://wa.me/${findOutLocation()}`} target="_blank">
+                WhatsApp {activeTab === "bhosari" ? "Bhosari" : "Triveni Nagar"} branch
+            </Link>
           </motion.button>
         </div>
       </div>
@@ -219,3 +232,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
