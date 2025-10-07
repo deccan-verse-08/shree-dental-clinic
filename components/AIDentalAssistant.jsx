@@ -76,7 +76,7 @@ export default function AIDentalAssistant({ isOpen, onClose }) {
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         placeholder="e.g., How often should I floss?"
-                        className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-cyan-500 focus:border-cyan-500"
+                        className="w-full px-4 py-2 border border-slate-700 rounded-md focus:ring-cyan-500 focus:border-cyan-500"
                         onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleQuery()}
                     />
                     <button onClick={handleQuery} disabled={isLoading} className="bg-cyan-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-cyan-700 disabled:bg-cyan-300 flex items-center justify-center">
@@ -89,7 +89,7 @@ export default function AIDentalAssistant({ isOpen, onClose }) {
                     {response && <div className="text-slate-700" dangerouslySetInnerHTML={{ __html: response }} />}
                     {!response && !isLoading && !error && <p className="text-slate-400">Your answer will appear here.</p>}
                 </div>
-                 <p className="text-xs text-slate-400 mt-2 text-center">AI can make mistakes. This is not medical advice.</p>
+                 <p className="text-xs text-slate-400 mt-2 text-center">AI can make mistakes. This is not medical advice. <br /> Please book a consultation for serious issues.</p>
             </div>
         </div>
     );
