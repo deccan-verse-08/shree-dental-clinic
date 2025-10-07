@@ -210,7 +210,7 @@ const Contact = () => {
             whileTap={{ scale: 0.95 }}
             className="px-6 py-3 rounded-lg bg-violet-900 hover:bg-violet-700 text-white text-base font-semibold border border-violet-500 shadow-lg shadow-violet-800/30 transition-all"
           >
-            Message me
+            <p>WhatsApp us</p>
           </motion.button>
         </div>
       </div>
