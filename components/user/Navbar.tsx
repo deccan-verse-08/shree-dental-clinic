@@ -142,13 +142,15 @@ export default function Navbar() {
                 );
               })}
 
+              <Link href={"/contact"}>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full mt-4 px-4 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold border border-blue-400 transition-all"
               >
-                Consult Now
+                  Consult Now
               </motion.button>
+              </Link>
             </div>
           </motion.div>
         )}
