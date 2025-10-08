@@ -5,7 +5,13 @@ import Hero from "@/components/user/Hero";
 import Navbar from "@/components/user/Navbar";
 import Reviews from "@/components/user/Reviews";
 import WhyChooseUs from "@/components/user/whyChooseUs";
-import Image from "next/image";
+
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Shree Dental Clinic - Your Trusted Dental Care Partner',
+  description: 'Experience expert dental care at Shree Dental Clinic with our advanced facilities and dedicated team.',
+};
 
 export default function Home() {
   return (
