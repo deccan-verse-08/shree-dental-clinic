@@ -29,12 +29,15 @@ const Contact = () => {
       map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120955.64051012186!2d73.6337315972656!3d18.670108399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b73ca8a35431%3A0xb0f153024537674c!2sShree%20Dental%20Clinic%20%26%20Implant%20Center%20%7C%20Dr.%20Snehal%20Kulkarni%20Dentist!5e0!3m2!1sen!2sin!4v1759700352389!5m2!1sen!2sin",
     },
   };
-
-  function findOutLocation(){
+  
+  // Function to get phone number without spaces for WhatsApp link used regular exp
+  function findOutLocationPhone(){ 
     if(activeTab==="bhosari"){
-      return locations.bhosari.phone;
+      const phone = locations.bhosari.phone;
+      return phone.replace(/\s+/g, '');
     }else{
-      return locations.triveni.phone;
+      const phone = locations.triveni.phone;
+      return phone.replace(/\s+/g, '');
     }
   }
 
@@ -133,7 +136,15 @@ const Contact = () => {
                     href={`tel:${info.phone}`}
                     className="text-sm md:text-lg hover:text-teal-700 transition"
                   >
-                    {info.phone}
+                    {info.phone} <br />
+                  </a>
+                  <a 
+                    href={`https://wa.me/${findOutLocationPhone()}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-block mt-2 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition"
+                  >
+                    Chat on WhatsApp
                   </a>
                 </div>
               </div>
@@ -211,7 +222,7 @@ const Contact = () => {
 
         
 
-        {/* Message Button */}
+        {/* Message Button
         <div className="flex justify-center mt-12 md:mt-16">
           <motion.button
             whileHover={{
@@ -221,11 +232,11 @@ const Contact = () => {
             whileTap={{ scale: 0.95 }}
             className="px-6 py-3 rounded-lg bg-violet-900 hover:bg-violet-700 text-white text-base font-semibold border border-violet-500 shadow-lg shadow-violet-800/30 transition-all"
           >
-            <Link href={`https://wa.me/${findOutLocation()}`} target="_blank">
+            <Link href={`https://wa.me/${findOutLocationPhone()}`} target="_blank">
                 WhatsApp {activeTab === "bhosari" ? "Bhosari" : "Triveni Nagar"} branch
             </Link>
           </motion.button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
