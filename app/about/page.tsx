@@ -157,7 +157,7 @@ export default function AboutPage() {
                             <div className="bg-rose-50 border-l-4 border-rose-400 p-6 rounded-r-lg shadow-sm">
                                 <h3 className="font-bold text-xl text-rose-800">Experiencing Tooth Pain?</h3>
                                 <p className="text-rose-700 mt-2 mb-4">
-                                    Don't wait. Our compassionate doctors are here to help you feel at ease. Schedule a visit today.
+                                    Don&apos;t wait. Our compassionate doctors are here to help you feel at ease. Schedule a visit today.
                                 </p>
                                 <Link href="/contact">
                                     <button className="bg-rose-500 text-white font-semibold py-2 px-5 rounded-lg shadow-md hover:bg-rose-600 transition-all flex items-center transform hover:scale-105">
