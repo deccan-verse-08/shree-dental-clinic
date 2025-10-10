@@ -137,7 +137,7 @@ export default function AboutPage() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-center text-4xl sm:text-5xl md:text-7xl font-bold mb-2"
+        className="text-center text-4xl sm:text-5xl md:text-7xl font-bold mb-4 mt-4"
       >
         Who We Are
       </motion.h1>
