@@ -20,6 +20,7 @@ export default function TreatmentSection(){
     description:
       "Straighten your teeth discreetly with clear, removable aligners that gently shift teeth into position—comfortable, convenient, and nearly invisible during daily wear.",
     image: "/treatments/invisible.jpg",
+    
   },
   {
     title: "Dental Implants",
