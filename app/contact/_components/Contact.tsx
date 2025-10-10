@@ -60,7 +60,19 @@ const Contact = () => {
           transition={{ duration: 0.9, delay: 0.2 }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-snug sm:leading-snug md:leading-tight text-center">
-  Visit Shree Dental Clinic
+  Visit <motion.span
+            animate={{
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="bg-gradient-to-r from-red-600 via-red-600 to-red-600 bg-[length:200%_200%] text-transparent bg-clip-text drop-shadow-sm"
+          >
+            Shree
+          </motion.span>{" "} Dental Clinic
 </h2>
           <motion.div
             className="h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent mx-auto mt-4 md:mt-6 rounded-full"
