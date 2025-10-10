@@ -3,13 +3,16 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { BackgroundBeamsWithCollision } from "../ui/background-beams-with-collision";
 
 const Hero = () => {
   return (
+    
     <section
       className="relative flex flex-col items-center justify-center min-h-screen w-full overflow-hidden 
       text-center px-4 sm:px-6 md:px-12 bg-white"
     >
+      <BackgroundBeamsWithCollision>
       {/* Decorative Top-Left Vector */}
       <motion.div
         initial={{ opacity: 0, x: -80, y: -60 }}
@@ -106,7 +109,9 @@ const Hero = () => {
           </Link>
         </motion.div>
       </div>
+      </BackgroundBeamsWithCollision>
     </section>
+  
   );
 };
 
