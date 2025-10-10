@@ -20,7 +20,7 @@ export default function TreatmentSection(){
     description:
       "Straighten your teeth discreetly with clear, removable aligners that gently shift teeth into position—comfortable, convenient, and nearly invisible during daily wear.",
     image: "/treatments/invisible.jpg",
-    
+
   },
   {
     title: "Dental Implants",
@@ -68,7 +68,7 @@ return(
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-center text-5xl md:text-7xl font-bold mb-2"
+        className="text-center text-4xl sm:text-5xl md:text-7xl font-bold mb-2"
       >
         Experience Modern Dentistry
       </motion.h1>

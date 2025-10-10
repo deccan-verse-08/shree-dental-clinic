@@ -44,18 +44,14 @@ export default function WhyChooseUs() {
   return (
     <section
       ref={ref}
-      className="relative py-24  overflow-hidden"
+      className="relative py-24  overflow-hidden bg-gradient-to-b from-blue-100 via-blue-50 to-white"
     >
       {/* Background motion bubbles */}
       <motion.div
         className="absolute inset-0 z-0"
         animate={{ backgroundPosition: ["0% 50%", "100% 50%"] }}
         transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 20% 30%, rgba(147,197,253,0.25) 0%, transparent 70%), radial-gradient(circle at 80% 70%, rgba(191,219,254,0.25) 0%, transparent 70%)",
-          backgroundSize: "200% 200%",
-        }}
+        
       />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10 text-center">
@@ -63,10 +59,17 @@ export default function WhyChooseUs() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-semibold text-navy-900 mb-14"
+          className="text-4xl sm:text-5xl md:text-7xl  font-semibold text-navy-900 "
         >
           Why Choose <span className="text-blue-600">Us</span>
         </motion.h2>
+               <motion.div
+  className="h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent mx-auto mb-16"
+  initial={{ width: "10%" }}
+  animate={{ width: "50%" }} // increase width
+  transition={{ duration: 1.2, delay: 0.4, ease: [0.22,1,0.36,1] }}
+/>
+
 
         <div className="grid md:grid-cols-2 gap-10">
           {reasons.map((item, i) => (
