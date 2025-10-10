@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion"; 
 import Link from "next/link";
 import { 
     HeartHandshake, 
@@ -14,9 +15,9 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/user/Navbar";
 import Footer from "@/components/user/Footer";
+import WhyChooseUs from "@/components/user/whyChooseUs";
 
-// --- Reusable Hook for In-View Animations ---
-// No changes needed here, this is a solid hook.
+
 const useOnScreen = (options: IntersectionObserverInit = {}) => {
     const ref = useRef<HTMLDivElement | null>(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -39,8 +40,7 @@ const useOnScreen = (options: IntersectionObserverInit = {}) => {
     return [ref, isVisible] as const;
 };
 
-// --- Reusable Animated Section Component ---
-// No major changes, this component effectively applies the hook.
+
 const AnimatedSection: React.FC<{
     children: React.ReactNode;
     className?: string;
@@ -58,7 +58,7 @@ const AnimatedSection: React.FC<{
     );
 };
 
-// --- Data: Moved to a constant for better separation ---
+
 const teamMembers = [
     {
         name: "Dr. Vaibhav Harkhare",
@@ -92,7 +92,7 @@ const whyChooseUsFeatures = [
     }
 ];
 
-// --- Reusable UI Card Components ---
+
 const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description: string; }> = ({ icon, title, description }) => (
     <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-cyan-100 transition-shadow duration-300 text-center">
         <div className="bg-cyan-100 rounded-full p-4 inline-flex ring-8 ring-white mb-5">
@@ -129,9 +129,25 @@ export default function AboutPage() {
     return (
         <>
         <Navbar />
-        <main className="font-sans bg-slate-50">
+        <main className="bg-gradient-to-b from-white via-blue-50 to-blue-100">
             {/* About Section */}
-            <AnimatedSection className="bg-white py-16 md:py-24 px-6">
+            <AnimatedSection className="bg-gradient-to-b from-white via-blue-50 to-blue-100 py-16 md:py-24 px-6">
+                <motion.h1
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center text-4xl sm:text-5xl md:text-7xl font-bold mb-2"
+      >
+        Who We Are
+      </motion.h1>
+        <motion.div
+  className="h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent mx-auto mb-15"
+  initial={{ width: "10%" }}
+  animate={{ width: "40%" }} // increase width
+  transition={{ duration: 1.2, delay: 0.4, ease: [0.22,1,0.36,1] }}
+/>
+      
                 <div className="container mx-auto max-w-6xl">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <Image
@@ -172,22 +188,11 @@ export default function AboutPage() {
             </AnimatedSection>
 
             {/* Why Choose Us Section */}
-            <AnimatedSection className="py-16 md:py-24 px-6">
-                <div className="container mx-auto max-w-6xl text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Why Choose Us?</h2>
-                    <p className="text-lg text-slate-600 max-w-3xl mx-auto mb-16">
-                        We combine the latest dental technologies with genuine care and transparency to deliver a stress-free experience for every patient.
-                    </p>
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {whyChooseUsFeatures.map((feature) => (
-                            <FeatureCard key={feature.title} {...feature} />
-                        ))}
-                    </div>
-                </div>
-            </AnimatedSection>
+            <WhyChooseUs/>
 
             {/* Team Section */}
-            <AnimatedSection className="bg-white py-16 md:py-24 px-6">
+            <motion.div>
+            <AnimatedSection className="bg-gradient-to-b from-white via-blue-50 to-blue-10 py-16 md:py-24 px-6">
                 <div className="container mx-auto max-w-6xl">
                     <h2 className="text-4xl md:text-5xl font-bold text-center text-slate-800 mb-16">
                         Meet Our Expert Doctors
@@ -199,6 +204,7 @@ export default function AboutPage() {
                     </div>
                 </div>
             </AnimatedSection>
+            </motion.div>
         </main>
         <Footer />
         </>
