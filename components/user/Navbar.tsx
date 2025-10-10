@@ -10,7 +10,7 @@ import { FiMenu, FiX } from 'react-icons/fi';
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About Us' },
-  { href: '/treatments', label: 'Treatments' },
+  { href: '/treatments', label: 'Blogs' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/contact', label: 'Contact' },
 ];

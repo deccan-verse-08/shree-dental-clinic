@@ -59,7 +59,7 @@ export default function WhyChooseUs() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-4xl sm:text-5xl md:text-7xl  font-semibold text-navy-900 "
+          className="text-4xl sm:text-5xl md:text-7xl  font-semibold text-navy-900 mb-2"
         >
           Why Choose <span className="text-blue-600">Us</span>
         </motion.h2>

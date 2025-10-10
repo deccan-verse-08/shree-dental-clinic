@@ -1,6 +1,7 @@
 import CTASection from "@/components/user/CtaSection";
 import Footer from "@/components/user/Footer";
 import Hero from "@/components/user/Hero";
+import Metric from "@/components/user/Metric";
 
 import Navbar from "@/components/user/Navbar";
 import Reviews from "@/components/user/Reviews";
@@ -20,6 +21,7 @@ export default function Home() {
     <Navbar/>
 <Hero/>
 <TreatmentSection/>
+<Metric/>
 <WhyChooseUs/>
 <Reviews/>
 <CTASection/>
