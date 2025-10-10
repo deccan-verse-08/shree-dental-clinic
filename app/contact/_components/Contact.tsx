@@ -46,7 +46,7 @@ const Contact = () => {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen w-full overflow-hidden bg-gradient-to-r from-[#e0f2ff] via-white to-[#e8f7f9] flex items-center px-4 md:px-6"
+      className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-white via-blue-50 to-blue-100 flex items-center px-4 md:px-6 mt-6"
     >
       {/* Floating glowing bubbles background */}
       <AnimatedBubbles />
@@ -59,11 +59,11 @@ const Contact = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.2 }}
         >
-          <h2 className="text-4xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-teal-700 via-blue-800 to-cyan-700 tracking-tight">
-            Visit Shree Dental Clinic
-          </h2>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-snug sm:leading-snug md:leading-tight text-center">
+  Visit Shree Dental Clinic
+</h2>
           <motion.div
-            className="h-1 bg-gradient-to-r from-transparent via-blue-600 to-transparent mx-auto mt-4 md:mt-6 rounded-full"
+            className="h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent mx-auto mt-4 md:mt-6 rounded-full"
             initial={{ width: "15%" }}
             animate={isInView ? { width: "80%" } : {}}
             transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
