@@ -9,14 +9,17 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@heroui/avatar": "^2.2.21",
     "@heroui/system": "^2.4.22",
     "@heroui/theme": "^2.4.22",
+    "@mui/material": "^7.3.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.22",
     "lucide-react": "^0.544.0",
-    "motion": "^12.23.22",
+    "motion": "^12.23.23",
     "next": "15.5.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",

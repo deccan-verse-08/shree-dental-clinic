@@ -4,6 +4,7 @@ import Hero from "@/components/user/Hero";
 
 import Navbar from "@/components/user/Navbar";
 import Reviews from "@/components/user/Reviews";
+import TreatmentSection from "@/components/user/TreatmentSection";
 import WhyChooseUs from "@/components/user/whyChooseUs";
 
 import { Metadata } from 'next';
@@ -18,6 +19,7 @@ export default function Home() {
    <div className="bg-gradient-to-r from-[#e0f2ff] via-white to-[#e8f7f9]">
     <Navbar/>
 <Hero/>
+<TreatmentSection/>
 <WhyChooseUs/>
 <Reviews/>
 <CTASection/>
