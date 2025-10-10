@@ -38,7 +38,7 @@ export default function Navbar() {
               priority
               className="object-contain"
             />
-            <span className="text-lg sm:text-xl font-semibold  bg-clip-text text-red-900">
+            <span className="text-lg sm:text-xl font-semibold  bg-clip-text text-red-600">
               Shree <span className="text-black">Dental Clinic</span>
             </span>
           </Link>
