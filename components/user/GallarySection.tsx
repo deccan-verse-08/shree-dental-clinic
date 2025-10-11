@@ -11,8 +11,8 @@ export default function GallerySection() {
     { src: "/treatments/Invisible.jpg", title: "Invisible Braces" },
     { src: "/treatments/root-canal.jpg", title: "Root Canal Care" },
     { src: "/hero.jpeg", title: "Clinic Environment" },
-    { src: "/doctors/snehal_kulkarni.jpg", title: "Dr. Snehal Kulkarni" },
-    { src: "/doctors/vaibhav_harkhare.jpg", title: "Dr. Vaibhav Harkare" },
+    // { src: "/doctors/snehal_kulkarni.jpg", title: "Dr. Snehal Kulkarni" },
+    // { src: "/doctors/vaibhav_harkhare.jpg", title: "Dr. Vaibhav Harkare" },
   ];
 
   
