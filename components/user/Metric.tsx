@@ -1,5 +1,3 @@
-
-
 "use client"
 import { motion, useInView } from "framer-motion";
 import CountUp from "react-countup";
@@ -37,9 +35,9 @@ export default function Metric() {
               className="bg-white rounded-3xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300"
               whileHover={{ scale: 1.05 }}
             >
-              <h3 className="text-5xl font-extrabold text-violet-600 mb-2">
+              <h3 className="text-5xl font-extrabold text-[#082f4a] mb-2">
                 {isInView ? (
-                  <CountUp end={stat.value} duration={2} separator="," />
+                  <CountUp end={stat.value} duration={4} separator="," />
                 ) : (
                   0
                 )}
