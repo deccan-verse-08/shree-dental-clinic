@@ -61,7 +61,7 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.6 }}
           className="text-4xl sm:text-5xl md:text-7xl  font-semibold text-navy-900 mb-2"
         >
-          Why Choose <span className="text-blue-600">Us</span>
+          Why Choose <span className="text-cyan-600">Us</span>?
         </motion.h2>
                <motion.div
   className="h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent mx-auto mb-16"
