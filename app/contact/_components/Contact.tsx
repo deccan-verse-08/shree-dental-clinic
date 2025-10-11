@@ -59,7 +59,7 @@ const Contact = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.2 }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-snug sm:leading-snug md:leading-tight text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-snug sm:leading-snug md:leading-tight text-center">
   Visit <motion.span
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
