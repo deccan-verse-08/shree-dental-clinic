@@ -139,7 +139,7 @@ export default function AboutPage() {
         viewport={{ once: true }}
         className="text-center text-4xl sm:text-5xl md:text-7xl font-bold mb-2 mt-8"
       >
-        Who We Are
+        Who We Are?
       </motion.h1>
         <motion.div
   className="h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent mx-auto mb-15"
