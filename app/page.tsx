@@ -9,7 +9,6 @@ import TreatmentSection from "@/components/user/TreatmentSection";
 import WhyChooseUs from "@/components/user/whyChooseUs";
 
 import { Metadata } from 'next';
-
 export const metadata: Metadata = {
   title: 'Shree Dental Clinic - Your Trusted Dental Care Partner',
   description: 'Experience expert dental care at Shree Dental Clinic with our advanced facilities and dedicated team.',

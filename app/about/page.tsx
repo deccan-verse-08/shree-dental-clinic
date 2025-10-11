@@ -17,7 +17,6 @@ import Navbar from "@/components/user/Navbar";
 import Footer from "@/components/user/Footer";
 import WhyChooseUs from "@/components/user/whyChooseUs";
 
-
 const useOnScreen = (options: IntersectionObserverInit = {}) => {
     const ref = useRef<HTMLDivElement | null>(null);
     const [isVisible, setIsVisible] = useState(false);
