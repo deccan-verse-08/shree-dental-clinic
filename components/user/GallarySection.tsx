@@ -9,7 +9,7 @@ export default function GallarySection() {
   const images = [
     { src: "/treatments/bridge.webp", title: "Bridge Treatment" },
     { src: "/treatments/implants.jpg", title: "Dental Implants" },
-    { src: "/treatments/invisible.jpg", title: "Invisible Braces" },
+    { src: "/treatments/Invisible.jpg", title: "Invisible Braces" },
     { src: "/treatments/root-canal.jpg", title: "Root Canal Care" },
     { src: "/hero.jpeg", title: "Clinic Environment" },
     { src: "/doctors/snehal_kulkarni.jpg", title: "Dr. Snehal Kulkarni" },
