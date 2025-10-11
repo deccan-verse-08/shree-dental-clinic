@@ -1,11 +1,10 @@
-
 "use client";
 
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default function GallarySection() {
+export default function GallerySection() {
   const images = [
     { src: "/treatments/bridge.webp", title: "Bridge Treatment" },
     { src: "/treatments/implants.jpg", title: "Dental Implants" },
@@ -16,24 +15,9 @@ export default function GallarySection() {
     { src: "/doctors/vaibhav_harkhare.jpg", title: "Dr. Vaibhav Harkare" },
   ];
 
-  const duplicatedImages = [...images, ...images];
-  const [isHovered, setIsHovered] = useState(false);
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (!isHovered) {
-      controls.start({
-        x: ["0%", "-50%"],
-        transition: {
-          duration: 40, // slower scroll for elegance
-          ease: "linear",
-          repeat: Infinity,
-        },
-      });
-    } else {
-      controls.stop();
-    }
-  }, [isHovered, controls]);
+  
+  const duplicated = [...images, ...images];
+  const [isPaused, setIsPaused] = useState(false);
 
   return (
     <section className="relative w-full overflow-hidden bg-gradient-to-b from-white via-blue-50 to-blue-100 py-28">
@@ -58,18 +42,23 @@ export default function GallarySection() {
         />
       </div>
 
-      {/* Infinite Scrolling Gallery */}
-      <div
-        className="flex overflow-hidden"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <motion.div className="flex gap-10 px-10" animate={controls}>
-          {duplicatedImages.map((img, index) => (
+      {/* Scrolling Gallery */}
+      <div className="overflow-hidden">
+        <div
+          className={`gallery-scroll ${isPaused ? "paused" : ""}`}
+          
+        >
+          {duplicated.map((img, idx) => (
             <motion.div
-              key={index}
-              whileHover={{ scale: 1.1 }}
-              className="relative w-[420px] h-[420px] flex-shrink-0 overflow-hidden rounded-[2.5rem] shadow-2xl cursor-pointer group bg-white"
+              key={idx}
+              className="gallery-item relative flex-shrink-0 overflow-hidden rounded-[2.5rem] shadow-2xl cursor-pointer group bg-white"
+              style={{ width: 420, height: 420 }}
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              onTouchStart={() => setIsPaused(true)}
+              onTouchEnd={() => setIsPaused(false)}
+              whileHover={{ scale: 1.08 }}
+              transition={{ type: "spring", stiffness: 220, damping: 20 }}
             >
               <img
                 src={img.src}
@@ -77,36 +66,65 @@ export default function GallarySection() {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
 
-              {/* Overlay */}
+              
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileHover={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end justify-center p-8 text-center text-white text-xl font-semibold tracking-wide backdrop-blur-[2px]"
+                transition={{ duration: 0.35 }}
+                className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end justify-center p-6 text-center text-white text-lg font-semibold tracking-wide backdrop-blur-[2px]"
               >
                 {img.title}
               </motion.div>
             </motion.div>
           ))}
-
-        </motion.div>
-        
+        </div>
       </div>
-      <div className="mt-12 flex justify-center">
-  <Link href="/gallary">
-    <motion.button
-      whileHover={{
-        scale: 1.05,
-        boxShadow: "0px 0px 15px rgba(59,130,246,0.4)",
-      }}
-      whileTap={{ scale: 0.95 }}
-      className="px-6 py-2 rounded-lg bg-violet-900 hover:bg-violet-700 text-white font-semibold border border-violet-500 shadow-lg shadow-violet-800/30 transition-all"
-    >
-      View Full Gallary
-    </motion.button>
-  </Link>
-  </div>
 
+      <div className="mt-12 flex justify-center">
+        <Link href="/gallary">
+          <motion.button
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0px 0px 15px rgba(59,130,246,0.35)",
+            }}
+            whileTap={{ scale: 0.96 }}
+            className="px-6 py-2 rounded-lg bg-violet-900 hover:bg-violet-700 text-white font-semibold border border-violet-500 shadow-lg shadow-violet-800/30 transition-all"
+          >
+            View Full Gallery
+          </motion.button>
+        </Link>
+      </div>
+
+      <style>{`
+        /* marquee moves the whole track left by 50% (one set of images).
+           duplicate images must be exactly appended for seamless loop. */
+        .gallery-scroll {
+          display: flex;
+          gap: 2.5rem;
+          padding: 0 2.5rem;
+          align-items: center;
+          animation: marquee 15s linear infinite;
+          will-change: transform;
+        }
+
+        .gallery-scroll.paused {
+          animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+
+        /* smaller sizes on narrow screens */
+        @media (max-width: 768px) {
+          .gallery-item { width: 320px !important; height: 320px !important; }
+        }
+
+        @media (max-width: 420px) {
+          .gallery-item { width: 260px !important; height: 260px !important; border-radius: 1.25rem; }
+        }
+      `}</style>
     </section>
   );
 }
