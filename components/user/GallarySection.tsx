@@ -96,35 +96,61 @@ export default function GallerySection() {
       </div>
 
       <style>{`
-        /* marquee moves the whole track left by 50% (one set of images).
-           duplicate images must be exactly appended for seamless loop. */
-        .gallery-scroll {
-          display: flex;
-          gap: 2.5rem;
-          padding: 0 2.5rem;
-          align-items: center;
-          animation: marquee 15s linear infinite;
-          will-change: transform;
-        }
+  /* ========== Marquee Base ========== */
+  .gallery-scroll {
+    display: inline-flex; /* allows auto width expansion */
+    gap: 2.5rem;
+    padding: 0 2.5rem;
+    align-items: center;
+    white-space: nowrap; /* prevents wrapping */
+    animation: marquee 25s linear infinite;
+    will-change: transform;
+  }
 
-        .gallery-scroll.paused {
-          animation-play-state: paused;
-        }
+  .gallery-scroll.paused {
+    animation-play-state: paused;
+  }
 
-        @keyframes marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 
-        /* smaller sizes on narrow screens */
-        @media (max-width: 768px) {
-          .gallery-item { width: 320px !important; height: 320px !important; }
-        }
+  /* ========== Responsive Speeds ========== */
+  @media (max-width: 1024px) {
+    .gallery-scroll {
+      animation: marquee 30s linear infinite;
+    }
+  }
 
-        @media (max-width: 420px) {
-          .gallery-item { width: 260px !important; height: 260px !important; border-radius: 1.25rem; }
-        }
-      `}</style>
+  @media (max-width: 640px) {
+    .gallery-scroll {
+      animation: marquee 30s linear infinite;
+    }
+  }
+
+  /* ========== Card Sizes (Responsive) ========== */
+  .gallery-item {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .gallery-item {
+      width: 320px !important;
+      height: 320px !important;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .gallery-item {
+      width: 260px !important;
+      height: 260px !important;
+      border-radius: 1.25rem;
+    }
+  }
+`}</style>
+
+
     </section>
   );
 }
