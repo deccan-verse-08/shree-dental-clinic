@@ -18,18 +18,24 @@ const Footer = () => {
         <div className="mb-8 md:mb-0">
           <h3 className="text-[#00B0C8] text-lg font-semibold mb-4 tracking-wide">Quick Links</h3>
           <ul className="space-y-2">
-            {["Treatments", "About Us", "Gallery", "Contact"].map((link, idx) => (
+            {[
+              { name: "Blogs", href: "/blogs" },
+              { name: "About Us", href: "/about" },
+              { name: "Gallery", href: "/gallary" },
+              { name: "Contact", href: "/contact" },
+            ].map((link, idx) => (
               <li key={idx}>
                 <Link
-                  href="/"
+                  href={link.href}
                   className="text-[#E6EEF3]/80 hover:text-[#00B0C8] transition-all duration-300 hover:drop-shadow-[0_0_6px_#00B0C8]"
                 >
-                  {link}
+                  {link.name}
                 </Link>
               </li>
             ))}
           </ul>
         </div>
+
 
         {/* Contact Info */}
         <div className="mb-8 md:mb-0">
