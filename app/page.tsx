@@ -1,9 +1,9 @@
 import CTASection from "@/components/user/CtaSection";
+import FeaturedBlogs from "@/components/user/FeaturedBlogs";
 import Footer from "@/components/user/Footer";
 import GallarySection from "@/components/user/GallarySection";
 import Hero from "@/components/user/Hero";
 import Metric from "@/components/user/Metric";
-
 import Navbar from "@/components/user/Navbar";
 import Reviews from "@/components/user/Reviews";
 import TreatmentSection from "@/components/user/TreatmentSection";
@@ -18,16 +18,17 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
    <div className="bg-gradient-to-r from-[#e0f2ff] via-white to-[#e8f7f9]">
-    <Navbar/>
-<Hero/>
-<TreatmentSection/>
-
-<Metric/>
-<GallarySection/>
-<WhyChooseUs/>
-<Reviews/>
-<CTASection/>
-    <Footer/>
+      <Navbar/>
+      <Hero/>
+      <TreatmentSection/>
+      <Metric/>
+      <GallarySection/>
+      <WhyChooseUs/>
+      <Reviews/>
+      {/* Featured Blogs Section */}
+      <FeaturedBlogs />
+      <CTASection/>
+      <Footer/>
    </div>
   );
 }
