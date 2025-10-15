@@ -191,13 +191,13 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold mb-2 md:mb-3 text-gray-800">Follow Us</h4>
                   <div className="flex space-x-4 md:space-x-6">
-                    <a href="#" className="text-gray-500 hover:text-blue-600 transition">
+                    <a href="https://www.instagram.com/shreedentalclinic28?igsh=em1pNjh1OGNtd2ho" className="text-gray-500 hover:text-blue-600 transition">
                       <Facebook size={20} />
                     </a>
-                    <a href="#" className="text-gray-500 hover:text-pink-600 transition">
+                    <a href="https://www.instagram.com/shreedentalclinic28?igsh=em1pNjh1OGNtd2ho" className="text-gray-500 hover:text-pink-600 transition">
                       <Instagram size={20} />
                     </a>
-                    <a href="#" className="text-gray-500 hover:text-red-600 transition">
+                    <a href="https://www.instagram.com/shreedentalclinic28?igsh=em1pNjh1OGNtd2ho" className="text-gray-500 hover:text-red-600 transition">
                       <Youtube size={20} />
                     </a>
                   </div>
@@ -234,21 +234,7 @@ const Contact = () => {
 
         
 
-        {/* Message Button
-        <div className="flex justify-center mt-12 md:mt-16">
-          <motion.button
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0px 0px 15px rgba(220,38,38,0.5)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 rounded-lg bg-violet-900 hover:bg-violet-700 text-white text-base font-semibold border border-violet-500 shadow-lg shadow-violet-800/30 transition-all"
-          >
-            <Link href={`https://wa.me/${findOutLocationPhone()}`} target="_blank">
-                WhatsApp {activeTab === "bhosari" ? "Bhosari" : "Triveni Nagar"} branch
-            </Link>
-          </motion.button>
-        </div> */}
+        
       </div>
     </section>
   );
