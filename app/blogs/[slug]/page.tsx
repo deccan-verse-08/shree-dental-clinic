@@ -5,7 +5,8 @@ import Image from "next/image";
 import BlogHero from "./_components/BlogHero"; 
 import BlogCTA from "./_components/BlogCTA";
 import Link from "next/link";
-import { FiCalendar, FiUser, FiTag, FiArrowLeft, FiShare2 } from 'react-icons/fi';
+import { FiCalendar, FiUser, FiTag, FiArrowLeft } from 'react-icons/fi';
+import ShareButton from './_components/ShareButton';
 
 interface PageProps {
   params: { slug: string };
@@ -24,10 +25,7 @@ export default async function BlogPost({ params }: PageProps) {
             <FiArrowLeft className="w-5 h-5" />
             <span className="font-medium">Back to Blogs</span>
           </Link>
-          <button className="flex items-center space-x-2 px-4 py-2 rounded-full bg-white border border-slate-200 hover:bg-slate-50 transition-all">
-            <FiShare2 className="w-4 h-4" />
-            <span className="text-sm font-medium">Share</span>
-          </button>
+          <ShareButton title={post.title} />
         </div>
       </div>
 
