@@ -60,7 +60,7 @@ const AnimatedSection: React.FC<{
 
 const teamMembers = [
     {
-        name: "Dr. Vaibhav Harkhare",
+        name: "Dr. Vaibhav Harkare",
         role: "Founder & Principal Dentist",
         desc: "15+ years of experience in cosmetic dentistry and patient care.",
         img: "/doctors/vaibhav_harkhare.jpg", // Assumes images are in the `public/doctors` folder
