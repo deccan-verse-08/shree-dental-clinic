@@ -214,7 +214,7 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold mb-2 md:mb-3 text-gray-800">Follow Us</h4>
                   <div className="flex space-x-4 md:space-x-6">
-                    <a href="https://www.instagram.com/shreedentalclinic28?igsh=em1pNjh1OGNtd2ho" className="text-gray-500 hover:text-blue-600 transition">
+                    <a href="https://www.facebook.com/share/17bPEFLXQJ/" className="text-gray-500 hover:text-blue-600 transition">
                       <Facebook size={20} />
                     </a>
                     <a href="https://www.instagram.com/shreedentalclinic28?igsh=em1pNjh1OGNtd2ho" className="text-gray-500 hover:text-pink-600 transition">

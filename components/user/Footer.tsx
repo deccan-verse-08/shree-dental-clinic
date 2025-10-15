@@ -70,7 +70,7 @@ const Footer = () => {
           <h3 className="text-[#00B0C8] text-lg font-semibold mb-4 tracking-wide">Follow Us</h3>
           <div className="flex justify-center md:justify-start space-x-5">
             {[
-              { href: "https://www.facebook.com", icon: Facebook, label: "Facebook" },
+              { href: "https://www.facebook.com/share/17bPEFLXQJ/", icon: Facebook, label: "Facebook" },
               { href: "https://www.instagram.com/shreedentalclinic28?igsh=em1pNjh1OGNtd2ho", icon: Instagram, label: "Instagram" },
               { href: "https://www.youtube.com/", icon: Youtube, label: "Youtube" },
             ].map((social, idx) => {
