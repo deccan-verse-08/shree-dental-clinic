@@ -9,6 +9,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import Link from "next/link";
 
 const reviews = [
   {
@@ -151,6 +152,25 @@ const Reviews = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+       <div className="flex justify-center mt-6">
+ <a
+    href="https://www.google.com/search?sca_esv=d39e7dff067d00e3&hl=en&gl=IN&sxsrf=AE3TifOwgDEZsNyU2rhnxtiHsXqjIcrvIQ:1760517909504&q=shree+dental+clinic+and+implant+center-+dr.+vaibhav+harkare+%7C+root+canal+%7C+braces+%7C+orthodontist+in+pcmc+pimpri-chinchwad+reviews..."
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <motion.button
+      whileHover={{
+        scale: 1.05,
+        boxShadow: "0px 0px 15px rgba(59,130,246,0.4)",
+      }}
+      whileTap={{ scale: 0.95 }}
+      className="px-6 py-2 rounded-lg bg-violet-900 hover:bg-violet-700 text-white font-semibold border border-violet-500 shadow-lg shadow-violet-800/30 transition-all"
+    >
+      View All Reviews 
+    </motion.button>
+    </a>
+  
+</div>
     </div>
   );
 };

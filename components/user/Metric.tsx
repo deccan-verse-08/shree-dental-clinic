@@ -5,10 +5,10 @@ import { useRef } from "react";
 
 export default function Metric() {
   const stats = [
-    { value: 2000, label: "Happy Patients" },
+    { value: 5000, label: "Happy Patients" },
     { value: 2, label: "Clinics" },
-    { value: 15, label: "Years of Experience" },
-    { value: 1000, label: "Successful Treatments" },
+    { value: 17, label: "Years of Experience" },
+    { value: 2000, label: "Successful Treatments" },
   ];
 
   // Ref for the section
