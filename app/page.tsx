@@ -25,7 +25,6 @@ export default function Home() {
       <GallarySection/>
       <WhyChooseUs/>
       <Reviews/>
-      {/* Featured Blogs Section */}
       <FeaturedBlogs />
       <CTASection/>
       <Footer/>
