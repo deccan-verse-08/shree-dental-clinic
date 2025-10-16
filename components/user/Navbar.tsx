@@ -76,18 +76,34 @@ export default function Navbar() {
 
           {/* ---- Desktop Button ---- */}
           <div className="hidden md:flex">
-            <Link href={"/contact"}>
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                boxShadow: '0px 0px 15px rgba(59,130,246,0.4)',
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 rounded-lg bg-violet-900 hover:bg-violet-700 text-white font-semibold border   border-violet-500 shadow-lg shadow-violet-800/30 transition-all"
-            >
-              Consult Now
-            </motion.button>
-            </Link>
+            {pathname === '/contact' ? (
+              <motion.button
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: '0px 0px 15px rgba(59,130,246,0.4)',
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-2 rounded-lg bg-violet-900 hover:bg-violet-700 text-white font-semibold border border-violet-500 shadow-lg shadow-violet-800/30 transition-all"
+              >
+                Consult Now
+              </motion.button>
+            ) : (
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: '0px 0px 15px rgba(59,130,246,0.4)',
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-6 py-2 rounded-lg bg-violet-900 hover:bg-violet-700 text-white font-semibold border border-violet-500 shadow-lg shadow-violet-800/30 transition-all"
+                >
+                  Consult Now
+                </motion.button>
+              </Link>
+            )}
           </div>
 
           {/* ---- Mobile Menu Toggle ---- */}
@@ -142,15 +158,30 @@ export default function Navbar() {
                 );
               })}
 
-              <Link href={"/contact"}>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full mt-4 px-4 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold border border-blue-400 transition-all"
-              >
+              {pathname === '/contact' ? (
+                <motion.button
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    setIsOpen(false);
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full mt-4 px-4 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold border border-blue-400 transition-all"
+                >
                   Consult Now
-              </motion.button>
-              </Link>
+                </motion.button>
+              ) : (
+                <Link href="/contact">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-full mt-4 px-4 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold border border-blue-400 transition-all"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Consult Now
+                  </motion.button>
+                </Link>
+              )}
             </div>
           </motion.div>
         )}
