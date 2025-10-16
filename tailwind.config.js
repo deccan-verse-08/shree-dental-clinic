@@ -7,7 +7,16 @@ module.exports = {
     "./node_modules/@heroui/theme/dist/components/avatar.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      /* Custom utilities */
+      '.scrollbar-hide': {
+        '-ms-overflow-style': 'none',
+        'scrollbar-width': 'none',
+        '&::-webkit-scrollbar': {
+          display: 'none',
+        },
+      },
+    },
   },
   darkMode: "class",
   plugins: [heroui()],
