@@ -2,9 +2,22 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import MobileGalleryCarousel from "./ui/MobileGalleryCarousel";
 
 export default function GallerySection() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 1024); // Consider tablets as mobile
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
   const images = [
     { src: "/treatments/bridge.webp", title: "Bridge Treatment" },
     { src: "/treatments/implants.jpg", title: "Dental Implants" },
@@ -42,43 +55,52 @@ export default function GallerySection() {
         />
       </div>
 
-      {/* Scrolling Gallery */}
-      <div className="overflow-hidden">
-        <div
-          className={`gallery-scroll ${isPaused ? "paused" : ""}`}
-          
-        >
-          {duplicated.map((img, idx) => (
-            <motion.div
-              key={idx}
-              className="gallery-item relative flex-shrink-0 overflow-hidden rounded-[2.5rem] shadow-2xl cursor-pointer group bg-white"
-              style={{ width: 420, height: 420 }}
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-              onTouchStart={() => setIsPaused(true)}
-              onTouchEnd={() => setIsPaused(false)}
-              whileHover={{ scale: 1.08 }}
-              transition={{ type: "spring", stiffness: 220, damping: 20 }}
-            >
-              <img
-                src={img.src}
-                alt={img.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-
-              
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileHover={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35 }}
-                className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end justify-center p-6 text-center text-white text-lg font-semibold tracking-wide backdrop-blur-[2px]"
-              >
-                {img.title}
-              </motion.div>
-            </motion.div>
-          ))}
+      {/* Gallery Display */}
+      {isMobile ? (
+        // Mobile/Tablet Card Carousel
+        <div className="flex justify-center items-center py-8">
+          <MobileGalleryCarousel 
+            images={images}
+            autoplay={true}
+            loop={true}
+            showNavigation={true}
+            showPagination={true}
+          />
         </div>
-      </div>
+      ) : (
+        // Desktop Scrolling Gallery
+        <div className="overflow-hidden">
+          <div className={`gallery-scroll ${isPaused ? "paused" : ""}`}>
+            {duplicated.map((img, idx) => (
+              <motion.div
+                key={idx}
+                className="gallery-item relative flex-shrink-0 overflow-hidden rounded-[2.5rem] shadow-2xl cursor-pointer group bg-white"
+                style={{ width: 420, height: 420 }}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                onTouchStart={() => setIsPaused(true)}
+                onTouchEnd={() => setIsPaused(false)}
+                whileHover={{ scale: 1.08 }}
+                transition={{ type: "spring", stiffness: 220, damping: 20 }}
+              >
+                <img
+                  src={img.src}
+                  alt={img.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileHover={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35 }}
+                  className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end justify-center p-6 text-center text-white text-lg font-semibold tracking-wide backdrop-blur-[2px]"
+                >
+                  {img.title}
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="mt-12 flex justify-center">
         <Link href="/gallary">
