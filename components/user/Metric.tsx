@@ -8,7 +8,7 @@ export default function Metric() {
     { value: 5000, label: "Happy Patients" },
     { value: 2, label: "Clinics" },
     { value: 17, label: "Years of Experience" },
-    { value: 2000, label: "Successful Treatments" },
+    { value: 7000, label: "Successful Treatments" },
   ];
 
   // Ref for the section

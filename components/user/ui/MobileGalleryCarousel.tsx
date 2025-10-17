@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { Autoplay, EffectCards, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useState, useEffect } from "react";
 import "swiper/css/effect-cards";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -28,6 +29,22 @@ export default function MobileGalleryCarousel({
   autoplay = false,
   spaceBetween = 40,
 }: CarouselProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // Consider 768px and below as mobile
+    };
+    
+    // Check initially
+    checkIsMobile();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIsMobile);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
   return (
     <motion.div
       initial={{ opacity: 0, translateY: 20 }}
@@ -41,7 +58,7 @@ export default function MobileGalleryCarousel({
       <Swiper
         spaceBetween={spaceBetween}
         autoplay={
-          autoplay
+          autoplay && !isMobile
             ? {
                 delay: 2500,
                 disableOnInteraction: false,

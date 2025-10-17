@@ -23,7 +23,7 @@ export default function GallerySection() {
     { src: "/treatments/implants.jpg", title: "Dental Implants" },
     { src: "/treatments/Invisible.jpg", title: "Invisible Braces" },
     { src: "/treatments/root-canal.jpg", title: "Root Canal Care" },
-    { src: "/hero.jpeg", title: "Clinic Environment" },
+    { src: "/hero.jpeg", title: "Our Dentist" },
     // { src: "/doctors/snehal_kulkarni.jpg", title: "Dr. Snehal Kulkarni" },
     // { src: "/doctors/vaibhav_harkhare.jpg", title: "Dr. Vaibhav Harkare" },
   ];
@@ -61,7 +61,7 @@ export default function GallerySection() {
         <div className="flex justify-center items-center py-8">
           <MobileGalleryCarousel 
             images={images}
-            autoplay={true}
+            autoplay={false} // Disabled autoplay for mobile
             loop={true}
             showNavigation={true}
             showPagination={true}
